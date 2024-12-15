@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Kalam:wght@300;400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Yeon+Sung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Kalam:wght@300;400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Yeon+Sung&display=swap');
+
+:root {
+  --cor-primaria: white;
+  --cor-secundaria: #8b84b0;
+
+  /* CORES */
+  --background-primario: #1c163b;
+  --background-secundario: #2d2547;
+  --background-terciario: #3e3553;
+
+  /* TIPOGRAFIA */
+  --fonte-principal: 1rem/1.5 'Poppins', sans-serif;
+  --fonte-secundaria: 1rem/1.5 'Roboto', sans-serif;
+}
+
+* {
+  color: var(--cor-primaria);
+  font: var(--fonte-principal);
+}
+
+/* ELEMENTS */
+
+body {
+  background-image: linear-gradient(to right, #1c163b, #2d2547, #3e3553);
+
+}
+
+input[type="text"] {
+  padding: .3rem;
+  border: 1px solid var(--cor-secundaria);
+  border-radius: .4rem;
+  background-color: var(--background-primario);
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  flex-direction: row;
+}
+
+li {
+  font: var(--fonte-primaria);
+}
