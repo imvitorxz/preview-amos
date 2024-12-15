@@ -1,29 +1,35 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 
 import Logo_Principal from '../assets/images/amos_logo_principal.png';
 import Icone_Pages from '../assets/icons/icon_pages.png';
-import Icone_User from '../assets/icons/icon_user.png';
 
 
 export default function Header() {
+    
+    const [menuPagesVisible, setMenuPagesVisible] = window.innerWidth > 1024 ? useState(true) : useState(false);
+    const displayMenuPages = window.innerWidth > 1024 ? 'flex' : 'block';
+
+    function handleMenuPagesVisible() { setMenuPagesVisible(!menuPagesVisible); }
+  
     return (
         <header>
             <div className={styles.divHeaderLeft}> 
-                <img src={Icone_Pages} className={styles.imgIcons} alt="Icone pages"/>
+                <img src={Icone_Pages} onClick={() => handleMenuPagesVisible()} className={styles.imgIcons} alt="Icone pages"/>
                 <img src={Logo_Principal} alt="Logo Principal"/>
+                <h1>AMÓS</h1>
             </div>
             <div className={styles.divHeaderCenter}>
-                <ul>
-                    <li>Home</li>
-                    <li>Conversas</li>
-                    <li>Usuário</li>
-                    <li>Privacidade</li>
-                    <li>Sobre</li>
+                <ul style={{display: menuPagesVisible ? displayMenuPages : 'none'}}>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/conversas">Conversas</Link></li>
+                    <li><Link to="/usuario">Usuário</Link></li>
+                    <li><Link to="/privacidade">Privacidade</Link></li>
+                    <li><Link to="/sobre">Sobre</Link></li>
                 </ul>
             </div>
             <div className={styles.divHeaderRight}>
-                <img src={Icone_User} className={styles.imgIcons} alt="Icone usuario"/>
                 <input id="inputHeaderSearch" name="inputHeaderSearch" type="text" placeholder='o que você procura?'/>
             </div>
         </header>

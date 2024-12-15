@@ -27,6 +27,11 @@ body {
 
 }
 
+a {
+  text-decoration: none;
+  color: var(--cor-primaria);
+}
+
 input[type="text"] {
   padding: .3rem;
   border: 1px solid var(--cor-secundaria);
