@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import Logo_Principal from '../assets/images/amos_logo_principal.png';
 import Icone_Pages from '../assets/icons/icon_pages.png';
+
 
 
 export default function Header() {
@@ -21,13 +23,22 @@ export default function Header() {
                 <h1>AMÓS</h1>
             </div>
             <div className={styles.divHeaderCenter}>
-                <ul style={{display: menuPagesVisible ? displayMenuPages : 'none'}}>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/conversas">Conversas</Link></li>
-                    <li><Link to="/usuario">Usuário</Link></li>
-                    <li><Link to="/privacidade">Privacidade</Link></li>
-                    <li><Link to="/sobre">Sobre</Link></li>
-                </ul>
+                <AnimatePresence>
+                    {menuPagesVisible && (
+                        <motion.ul 
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            style={{ display: displayMenuPages }}
+                        >
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="/conversas">Conversas</Link></li>
+                            <li><Link to="/usuario">Usuário</Link></li>
+                            <li><Link to="/privacidade">Privacidade</Link></li>
+                            <li><Link to="/sobre">Sobre</Link></li>
+                        </motion.ul>
+                    )}
+                </AnimatePresence>
             </div>
             <div className={styles.divHeaderRight}>
                 <input id="inputHeaderSearch" name="inputHeaderSearch" type="text" placeholder='o que você procura?'/>
