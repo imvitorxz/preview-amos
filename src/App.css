@@ -40,6 +40,22 @@ input[type="text"] {
   max-width: 100%;
 }
 
+button {
+  padding: .3rem;
+  border: 1px solid var(--cor-secundaria);
+  border-radius: .4rem;
+  background-color: var(--background-primario);
+  color: var(--cor-primaria);
+}
+
+button:hover {
+  background-color: var(--background-secundario);
+}
+
+button:active {
+  background-color: var(--background-terciario);
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -48,4 +64,9 @@ ul {
 
 li {
   font: var(--fonte-primaria);
+}
+
+img {
+  background: none;
+  max-width: 100%;
 }
