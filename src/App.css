@@ -56,6 +56,15 @@ button:active {
   background-color: var(--background-terciario);
 }
 
+fieldset {
+  border: 1px solid var(--cor-secundaria);
+  border-radius: .4rem;
+  width: fit-content;
+  background-color: var(--background-primario);
+  padding: 1rem;
+  margin: 0 auto;
+}
+
 ul {
   list-style: none;
   padding: 0;

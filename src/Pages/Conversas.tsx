@@ -1,6 +1,9 @@
 import styles from './Conversas.module.css';
 
 export default function Conversas() {
+
+    document.title = 'AMÓS - Conversas';
+
     return (
         <div className={styles.divChats}>
             <h1>Conversas</h1>
