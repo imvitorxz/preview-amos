@@ -32,7 +32,7 @@ a {
   color: var(--cor-primaria);
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"] {
   padding: .3rem;
   border: 1px solid var(--cor-secundaria);
   border-radius: .4rem;

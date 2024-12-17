@@ -1,0 +1,21 @@
+.divUsuario {
+    text-align: center;
+
+    #inputUsuarioBio {
+        width: 50%;
+        height: 110px;
+        resize: none;
+        padding: .3rem;
+        border: 1px solid var(--cor-secundaria);
+        border-radius: .4rem;
+        background-color: var(--background-primario);
+        max-width: 100%;
+    }
+}
+
+.imgPerfil {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    display: block;
+}
