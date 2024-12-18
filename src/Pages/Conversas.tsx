@@ -1,11 +1,40 @@
 import styles from './Conversas.module.css';
+import { motion } from 'framer-motion';
 
 export default function Conversas() {
 
     document.title = 'AMÓS - Conversas';
 
+    const pageVariants = {
+        initial: {
+            opacity: 0,
+            y: -50,
+        },
+        in: {
+            opacity: 1,
+            y: 0,
+        },
+        out: {
+            opacity: 0,
+            y: 50,
+        },
+    };
+
+    const pageTransition = {
+        type: 'spring',
+        stiffness: 50,
+        damping: 20,
+    };
+
     return (
-        <div className={styles.divChats}>
+        <motion.div
+            className={styles.divChats}
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={pageVariants}
+            transition={pageTransition}
+        >
             <h1>Conversas</h1>
             <div className={styles.divChatsModules}>
                 <div className={styles.divChatsModule}>
@@ -108,6 +137,6 @@ export default function Conversas() {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }

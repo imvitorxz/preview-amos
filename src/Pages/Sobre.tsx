@@ -1,4 +1,5 @@
 import styles from './Sobre.module.css';
+import { motion } from 'framer-motion';
 
 import Facebook from '../assets/icons/social_media/facebook pequeno.png';
 import GitHub from '../assets/icons/social_media/github pequeno.png';
@@ -13,8 +14,36 @@ export default function Sobre() {
   
     document.title = 'AMÓS - Sobre';
 
-    return (
-        <div className={styles.divSobre}>
+
+    const pageVariants = {
+        initial: {
+            opacity: 0,
+            y: -50,
+        },
+        in: {
+            opacity: 1,
+            y: 0,
+        },
+        out: {
+            opacity: 0,
+            y: 50,
+        },
+    };
+
+    const pageTransition = {
+        type: 'spring',
+        stiffness: 50,
+        damping: 20,
+    };
+    return (      
+        <motion.div
+        className={styles.divSobre}
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
+    >
             <h1 style={{textAlign: 'center'}}>Sobre o projeto</h1>
             <h1 style={{color:'gray'}}>
                 Olá Mundo!
@@ -89,6 +118,6 @@ export default function Sobre() {
                 </div>
             </div>
         </div>             
-    </div>
+    </motion.div>
     )
 }

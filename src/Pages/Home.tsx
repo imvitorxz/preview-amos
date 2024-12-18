@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import styles from './Home.module.css';
 
 import Logo_Secundaria from '../assets/images/amos_logo_secundaria.png';
@@ -24,12 +25,39 @@ export default function Home() {
         setCurrentPhrase(mainPhrases[Math.floor(Math.random() * mainPhrases.length)]);
     }, []);
 
+    const pageVariants = {
+        initial: {
+            opacity: 0,
+            y: -50,
+        },
+        in: {
+            opacity: 1,
+            y: 0,
+        },
+        out: {
+            opacity: 0,
+            y: 50,
+        },
+    };
+
+    const pageTransition = {
+        type: 'spring',
+        stiffness: 50,
+        damping: 20,
+    };
+
     return (
-        <div className={styles.divHome}>
+        <motion.div
+            className={styles.divHome}
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={pageVariants}
+            transition={pageTransition}
+        >
             <img src={Logo_Secundaria} alt="Logo Secundária"/>
             <h1>{currentPhrase}</h1>
             <input id="inputHomeMainInput" name="inputHomeMainInput" type="text" placeholder='escreva aqui!'/>
-
-        </div>
+        </motion.div>
     )
 }

@@ -1,11 +1,40 @@
 import styles from './Privacidade.module.css';
+import { motion } from 'framer-motion';
 
 export default function Privacidade() {
 
     document.title = 'AMÓS - Privacidade';
 
+        const pageVariants = {
+        initial: {
+            opacity: 0,
+            y: -50,
+        },
+        in: {
+            opacity: 1,
+            y: 0,
+        },
+        out: {
+            opacity: 0,
+            y: 50,
+        },
+    };
+
+    const pageTransition = {
+        type: 'spring',
+        stiffness: 50,
+        damping: 20,
+    };
+
     return (
-        <div className={styles.divPrivacidade}>
+        <motion.div
+            className={styles.divPrivacidade}
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={pageVariants}
+            transition={pageTransition}
+        >
             <h1>Política de Privacidade</h1>
             <p>
                 Bem-vindo à nossa página de Política de Privacidade. Sua privacidade é importante para nós.
@@ -68,6 +97,6 @@ export default function Privacidade() {
                     Este projeto é para portfólio, então não coloque dados pessoais ou sensíveis aqui, caso você não queira que sejam expostos.
                 </p>
             </section>
-        </div>
+        </motion.div>
     )
 }
