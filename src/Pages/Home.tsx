@@ -23,6 +23,8 @@ export default function Home() {
 
     useEffect(() => {
         setCurrentPhrase(mainPhrases[Math.floor(Math.random() * mainPhrases.length)]);
+        const inputHomeMainInput = document.getElementById('inputHomeMainInput');
+        if (inputHomeMainInput) inputHomeMainInput.focus();
     }, []);
 
     const pageVariants = {

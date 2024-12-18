@@ -21,10 +21,6 @@ export default function Header() {
         if (window.innerWidth < 1024) {
             setMenuPagesVisible(false);
         }
-    }, []);
-
-    useEffect(() => {
-        setMenuPagesVisible(false);
     }, [location]);
 
     return (
