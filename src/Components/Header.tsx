@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link , useLocation} from 'react-router-dom';
 import styles from './Header.module.css';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -13,8 +13,20 @@ export default function Header() {
     const [menuPagesVisible, setMenuPagesVisible] = window.innerWidth > 1024 ? useState(true) : useState(false);
     const displayMenuPages = window.innerWidth > 1024 ? 'flex' : 'block';
 
+    const location = useLocation();
+
     function handleMenuPagesVisible() { setMenuPagesVisible(!menuPagesVisible); }
   
+    useEffect(() => {
+        if (window.innerWidth < 1024) {
+            setMenuPagesVisible(false);
+        }
+    }, []);
+
+    useEffect(() => {
+        setMenuPagesVisible(false);
+    }, [location]);
+
     return (
         <header>
             <div className={styles.divHeaderLeft}> 
