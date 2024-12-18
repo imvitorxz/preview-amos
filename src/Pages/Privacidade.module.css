@@ -1,0 +1,12 @@
+.divPrivacidade {
+    padding: 1rem;
+
+    h1, h2 {
+        font-weight: bold;
+    }
+
+    p, ul, li {
+        margin: 1rem;
+        list-style: upper-roman;
+    }
+}

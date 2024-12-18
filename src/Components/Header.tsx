@@ -19,8 +19,8 @@ export default function Header() {
         <header>
             <div className={styles.divHeaderLeft}> 
                 <img src={Icone_Pages} onClick={() => handleMenuPagesVisible()} className={styles.imgIcons} alt="Icone pages"/>
-                <img src={Logo_Principal} alt="Logo Principal"/>
-                <h1>AMÓS</h1>
+                <Link to="/"><img src={Logo_Principal} alt="Logo Principal"/></Link>
+                <Link to="/"><h1>AMÓS</h1></Link>
             </div>
             <div className={styles.divHeaderCenter}>
                 <AnimatePresence>
