@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Home.module.css';
 
 import Logo_Secundaria from '../assets/images/amos_logo_secundaria.png';
@@ -9,6 +9,8 @@ export default function Home() {
     document.title = 'AMÓS - Home';
 
     const [currentPhrase, setCurrentPhrase] = useState('');
+    const [isVisible, setIsVisible] = useState(true);
+    const [inputValue, setInputValue] = useState('');
     const mainPhrases = [
         'Como eu posso lhe ajudar?',
         'O que você deseja?',
@@ -21,10 +23,28 @@ export default function Home() {
         'O que você deseja encontrar hoje?',
     ];
 
+    function handleInputValue(e : HTMLInputElement) {
+        setInputValue(e.value);
+    };
+
     useEffect(() => {
         setCurrentPhrase(mainPhrases[Math.floor(Math.random() * mainPhrases.length)]);
-        const inputHomeMainInput = document.getElementById('inputHomeMainInput');
-        if (inputHomeMainInput) inputHomeMainInput.focus();
+    }, []);
+
+    useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === 'Enter') {
+                setIsVisible(false);
+                const input = document.getElementById('inputHomeMainInput') as HTMLInputElement;
+                handleInputValue(input);
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
     }, []);
 
     const pageVariants = {
@@ -57,8 +77,21 @@ export default function Home() {
             variants={pageVariants}
             transition={pageTransition}
         >
-            <img src={Logo_Secundaria} alt="Logo Secundária"/>
-            <h1>{currentPhrase}</h1>
+            <AnimatePresence>
+                {isVisible && (
+                    <motion.div
+                        id={styles.divHomeMain}
+                        initial={{ opacity: 1, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -50 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <img src={Logo_Secundaria} alt="Logo Secundária"/>
+                        <h1>{currentPhrase}</h1>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+            <p className={styles.pChatUser}>Você: {inputValue}</p>
             <input id="inputHomeMainInput" name="inputHomeMainInput" type="text" placeholder='escreva aqui!'/>
         </motion.div>
     )
