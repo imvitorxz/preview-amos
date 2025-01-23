@@ -15,7 +15,7 @@ Para começar a usar o AMÓS, siga os passos abaixo:
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/vitukjkk/Amos.git
+   git clone https://github.com/vitorxzspes/Amos.git
    ```
 2. Navegue até o diretório do projeto:
    ```bash
