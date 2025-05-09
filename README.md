@@ -66,4 +66,4 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull re
 Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## 📞 - Contato
-Para mais informações, entre em contato com [vitor69776@estudante.ifb.edu.br](mailto:vitor69776@estudante.ifb.edu.br).
+Para mais informações, entre em contato com [contato@saberevolve.com.br](mailto:contato@saberevolve.com.br).
