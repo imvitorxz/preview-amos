@@ -1,7 +1,7 @@
 # 👧 - Amos
 [Acesse aqui](https://amos-jet.vercel.app/)
 
-amiga virtual inteligente projetada para apoiar e aprimorar o desenvolvimento pessoal. Com foco em autoaperfeiçoamento, a AMÓS oferece conselhos personalizados, orientações e ferramentas para ajudar os usuários a alcançar seus objetivos, desenvolver novas habilidades e manter a motivação.
+Amiga virtual inteligente projetada para apoiar e aprimorar o desenvolvimento pessoal. Com foco em autoaperfeiçoamento, a AMÓS oferece conselhos personalizados, orientações e ferramentas para ajudar os usuários a alcançar seus objetivos, desenvolver novas habilidades e manter a motivação.
 
 ## 💻 - Tecnologias
 - React
